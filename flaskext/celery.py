@@ -39,7 +39,8 @@ class Celery(object):
         self.conf = AttributeDict()
         self.app.config.setdefault("CELERY_RESULT_BACKEND", "amqp")
 
-        from celery.conf import prepare
+        #from celery.conf import prepare
+        from celery.routes import prepare
         prepare(self.conf, AttributeDict(self.app.config))
 
     def create_task_cls(self):
